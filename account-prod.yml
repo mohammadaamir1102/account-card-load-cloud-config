@@ -2,7 +2,7 @@ build:
   version: "1.0"
 
 accounts:
-  message: "Welcome to KhanBank accounts related local APIs."
+  message: "Welcome to KhanBank accounts related local APIs. Test"
   contactDetails:
     name: "Aamir Khan - Product owner"
     email: "aamir@khanbank.com"
