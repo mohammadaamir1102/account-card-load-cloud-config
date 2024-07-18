@@ -2,7 +2,7 @@ build:
   version: "1.0"
 
 accounts:
-  message: "Welcome to KhanBank accounts related local APIs. (Reading this file from the git) (With out redeploying getting this by actuator end-point)"
+  message: "Welcome to KhanBank accounts related local APIs."
   contactDetails:
     name: "Aamir Khan - Product owner"
     email: "aamir@khanbank.com"
