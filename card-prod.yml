@@ -4,7 +4,7 @@ build:
 cards:
   message: "Welcome to KhanBank accounts related local APIs."
   contactDetails:
-    name: "Aamir Khan - Product owner"
+    name: "Aamir Khan - Product Owner"
     email: "{cipher}0c874484252b88d8a5f8b542a9c9f1254e81ce1d741ab0285d0fdbb55022fbee3da43d86321f3a1b3a73e8b729860c16"
   onCallSupport:
     - (333) 777-8765
