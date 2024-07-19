@@ -7,7 +7,7 @@ build:
 accounts:
   message: "Welcome to KhanBank accounts related local APIs "
   contactDetails:
-    name: "Aaquib Khan - Developer"
+    name: "Aaquib Khan - Developer."
     email: "aaquib@khanbank.com"
   onCallSupport:
     - (333) 777-8765
