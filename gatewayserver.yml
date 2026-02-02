@@ -21,7 +21,6 @@ management:
         include: "*"
   endpoint:
     gateway:
-      enabled: true        # ✅ REQUIRED in Boot 4
       access: unrestricted  # ✅ allows /actuator/gateway/routes
   info:
     env:
