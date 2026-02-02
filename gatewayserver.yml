@@ -5,14 +5,18 @@ spring:
   application:
     name: "gatewayserver"
 
+  cloud:
+    discovery:
+      reactive:
+        enabled: true          # ✅ REQUIRED for Eureka + Gateway (Boot 4)
 
-  cloud:                         
     gateway:
       discovery:
         locator:
-          enabled: true          
+          enabled: true        # ✅ Enables auto routes
           lowerCaseServiceId: true
-    
+
+        
 eureka:
   instance:
     preferIpAddress: true
@@ -31,7 +35,7 @@ management:
         include: "*"
   endpoint:
     gateway:
-      access: unrestricted
+      access: unrestricted  # ✅ allows /actuator/gateway/routes
   info:
     env:
       enabled: true
