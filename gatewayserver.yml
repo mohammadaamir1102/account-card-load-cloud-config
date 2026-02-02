@@ -66,21 +66,21 @@ spring:
               predicates:
                 - Path=/eazybank/accounts/**
               filters:
-                - RewritePath=/eazybank/accounts/(?<segment>.*), /$${segment}
+                - RewritePath=/eazybank/accounts/?(?<segment>.*), /$\{segment}
     
             - id: loans
               uri: lb://LOANS
               predicates:
                 - Path=/eazybank/loans/**
               filters:
-                - RewritePath=/eazybank/loans/(?<segment>.*), /$${segment}
+                - RewritePath=/eazybank/loans/?(?<segment>.*), /$\{segment}
     
             - id: cards
               uri: lb://CARDS
               predicates:
                 - Path=/eazybank/cards/**
               filters:
-                - RewritePath=/eazybank/cards/(?<segment>.*), /$${segment}          
+                - RewritePath=/eazybank/cards/?(?<segment>.*), /$\{segment}          
 
 management:
   endpoints:
