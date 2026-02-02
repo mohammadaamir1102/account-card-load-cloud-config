@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: "gatewayserver"
+
+
+  cloud:                         
+    gateway:
+      discovery:
+        locator:
+          enabled: true          
+          lowerCaseServiceId: true
     
 eureka:
   instance:
@@ -14,14 +22,6 @@ eureka:
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka/"
 
-  cloud:
-    gateway:
-      server:
-        webflux:
-          discovery:
-            locator:
-              enabled: true
-              lowerCaseServiceId: true
       
 
 management:
