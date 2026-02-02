@@ -1,3 +1,55 @@
+# server:
+#   port: 8072
+  
+# spring:
+#   application:
+#     name: "gatewayserver"
+#   cloud:
+#     gateway:
+#       server:
+#         webflux:
+#           discovery:
+#             locator:
+#               enabled: true
+#               lowerCaseServiceId: true
+
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "*"
+#   endpoint:
+#     gateway:
+#       access: unrestricted
+#   info:
+#     env:
+#       enabled: true
+
+# info:
+#   app:
+#     name: "gatewayserver"
+#     description: "Eazy Bank Gateway Server Application"
+#     version: "1.0.0"
+
+# logging:
+#   level:
+#     com:
+#       eazybytes:
+#         gatewayserver: DEBUG
+        
+# eureka:
+#   instance:
+#     preferIpAddress: true
+#   client:
+#     registerWithEureka: true
+#     fetchRegistry: true
+#     serviceUrl:
+#       defaultZone: "http://localhost:8761/eureka/"
+
+
+
+
+
 server:
   port: 8072
   
@@ -7,11 +59,28 @@ spring:
   cloud:
     gateway:
       server:
-        webflux:
-          discovery:
-            locator:
-              enabled: true
-              lowerCaseServiceId: true
+        webmvc:
+          routes:
+            - id: accounts
+              uri: lb://ACCOUNTS
+              predicates:
+                - Path=/eazybank/accounts/**
+              filters:
+                - RewritePath=/eazybank/accounts/(?<segment>.*), /$${segment}
+    
+            - id: loans
+              uri: lb://LOANS
+              predicates:
+                - Path=/eazybank/loans/**
+              filters:
+                - RewritePath=/eazybank/loans/(?<segment>.*), /$${segment}
+    
+            - id: cards
+              uri: lb://CARDS
+              predicates:
+                - Path=/eazybank/cards/**
+              filters:
+                - RewritePath=/eazybank/cards/(?<segment>.*), /$${segment}          
 
 management:
   endpoints:
