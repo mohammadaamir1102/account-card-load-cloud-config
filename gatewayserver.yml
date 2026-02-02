@@ -1,6 +1,10 @@
 server:
   port: 8072
 
+spring:
+  application:
+    name: "gatewayserver"
+    
 eureka:
   instance:
     preferIpAddress: true
@@ -10,7 +14,41 @@ eureka:
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka/"
 
-# use above one before implement manual routes
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+              lowerCaseServiceId: true
+      
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Eazy Bank Gateway Server Application"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG
+
+# use above one before implement manual routes as well as for @Bean using RouteLocator
 
 
 # server:
@@ -54,27 +92,5 @@ eureka:
 #           filters:
 #             - RewritePath=/eazybank/cards/(?<segment>.*), /$${segment}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    gateway:
-      access: unrestricted
-  info:
-    env:
-      enabled: true
 
-info:
-  app:
-    name: "gatewayserver"
-    description: "Eazy Bank Gateway Server Application"
-    version: "1.0.0"
-
-logging:
-  level:
-    com:
-      eazybytes:
-        gatewayserver: DEBUG
 
