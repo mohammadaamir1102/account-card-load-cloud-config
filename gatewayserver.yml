@@ -14,30 +14,6 @@ eureka:
     serviceUrl:
       defaultZone: "http://localhost:8761/eureka/"
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    gateway:
-      access: unrestricted  # ✅ allows /actuator/gateway/routes
-  info:
-    env:
-      enabled: true
-
-info:
-  app:
-    name: "gatewayserver"
-    description: "Eazy Bank Gateway Server Application"
-    version: "1.0.0"
-
-logging:
-  level:
-    com:
-      eazybytes:
-        gatewayserver: DEBUG
-
 # use above one before implement manual routes as well as for @Bean using RouteLocator
 
 
