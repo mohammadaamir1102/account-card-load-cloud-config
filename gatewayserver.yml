@@ -1,58 +1,58 @@
-# server:
-#   port: 8072
+server:
+  port: 8072
 
-# eureka:
-#   instance:
-#     preferIpAddress: true
-#   client:
-#     registerWithEureka: true
-#     fetchRegistry: true
-#     serviceUrl:
-#       defaultZone: "http://localhost:8761/eureka/"
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: "http://localhost:8761/eureka/"
 
 # use above one before implement manual routes
 
 
-server:
-  port: 8072
+# server:
+#   port: 8072
 
-spring:
-  application:
-    name: gatewayserver
+# spring:
+#   application:
+#     name: gatewayserver
 
-  config:
-    import: "optional:configserver:http://localhost:8071/"
+#   config:
+#     import: "optional:configserver:http://localhost:8071/"
 
-  cloud:
-    gateway:
+#   cloud:
+#     gateway:
 
-      discovery:
-        locator:
-          enabled: true
-          lowerCaseServiceId: true
+#       discovery:
+#         locator:
+#           enabled: true
+#           lowerCaseServiceId: true
 
-      routes:
+#       routes:
 
-        - id: accounts
-          uri: lb://ACCOUNTS
-          predicates:
-            - Path=/eazybank/accounts/**
-          filters:
-            - RewritePath=/eazybank/accounts/(?<segment>.*), /$${segment}
+#         - id: accounts
+#           uri: lb://ACCOUNTS
+#           predicates:
+#             - Path=/eazybank/accounts/**
+#           filters:
+#             - RewritePath=/eazybank/accounts/(?<segment>.*), /$${segment}
 
-        - id: loans
-          uri: lb://LOANS
-          predicates:
-            - Path=/eazybank/loans/**
-          filters:
-            - RewritePath=/eazybank/loans/(?<segment>.*), /$${segment}
+#         - id: loans
+#           uri: lb://LOANS
+#           predicates:
+#             - Path=/eazybank/loans/**
+#           filters:
+#             - RewritePath=/eazybank/loans/(?<segment>.*), /$${segment}
 
-        - id: cards
-          uri: lb://CARDS
-          predicates:
-            - Path=/eazybank/cards/**
-          filters:
-            - RewritePath=/eazybank/cards/(?<segment>.*), /$${segment}
+#         - id: cards
+#           uri: lb://CARDS
+#           predicates:
+#             - Path=/eazybank/cards/**
+#           filters:
+#             - RewritePath=/eazybank/cards/(?<segment>.*), /$${segment}
 
 management:
   endpoints:
