@@ -12,9 +12,3 @@ cards:
   onCallSupport:
     - (333) 777-8765
     - (333) 888-6543
-
-logging:
-  level:
-    com:
-      eazybytes:
-        cards: DEBUG
